@@ -1,0 +1,8 @@
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_OUT = 'SIGN_OUT';
+
+export const FETCH_CATEGORIES = 'FETCH_PROFILE';
+export const CREATE_CATEGORY = 'CREATE_CATEGORY';
+export const SELECT_CATEGORY = 'SELECT_CATEGORY';
+export const ADD_FAVORITE = 'ADD_FAVORITE';
+export const ADD_FAVORITE_TO_CATEGORY = 'ADD_FAVORITE_TO_CATEGORY';
