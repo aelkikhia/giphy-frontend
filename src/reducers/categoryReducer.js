@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import {
     CREATE_CATEGORY, FETCH_CATEGORIES, SELECTED_CATEGORY
-} from "../actions/action_types";
+} from "../action_types";
 
 
 const INITIAL_STATE = {

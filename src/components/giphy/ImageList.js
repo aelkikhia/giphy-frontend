@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import  { connect } from "react-redux";
-// import {fetchGiphyImages} from "../../actions";
-
-// import ImageItem from './ImageItem';
+import {selectedImage} from "../../actions";
 
 class ImageList extends Component {
 
@@ -18,12 +16,13 @@ class ImageList extends Component {
     };
 
     renderList() {
-        let images = this.props.giphy.images.data;
-        return images.map(e => {
+        let image_data = this.props.giphy.images.data;
+        return image_data.map(image => {
             return (
-                <li key={e.id} className="list" onClick={() =>this.saveList(e.images.original.webp)}>
-                    <img src={e.images.fixed_width_small.webp} alt="" />
+                <li key={image.id} className="list" onClick={() =>this.selectedImage(image)}>
+                    <img src={image.images.fixed_width_small.url} alt="" />
                 </li>
+
             );
         });
     };
@@ -54,4 +53,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(ImageList);
+export default connect(mapStateToProps, {selectedImage})(ImageList);

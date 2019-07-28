@@ -1,8 +1,9 @@
 import React from 'react';
+import {connect} from "react-redux";
 
 const ImageDetail = ({ image }) => {
     if (!image) {
-        return <div>Loading...</div>
+        return <div></div>
     }
 
     const imageSrc = `https://www.youtube.com/embed/${image.id.imageId}`;
@@ -20,4 +21,12 @@ const ImageDetail = ({ image }) => {
     );
 };
 
-export default ImageDetail;
+const mapStateToProps = state => {
+    return {
+        giphy: state.giphy,
+        currentUserId: state.auth.userId,
+        isSignedIn: state.auth.isSignedIn
+    };
+};
+
+export default connect(mapStateToProps)(ImageDetail);

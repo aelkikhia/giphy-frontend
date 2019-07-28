@@ -3,14 +3,15 @@ import {
     FETCH_GIPHY_IMAGES_FULFILLED,
     FETCH_GIPHY_IMAGES_PENDING,
     FETCH_GIPHY_IMAGES_REJECTED,
-    UPDATE_SEARCH_INPUT
+    SELECTED_GIPHY_IMAGE
 } from "../action_types";
 
 const INITIAL_STATE = {
     images: [],
+    selected: null,
     loading: false,
     error: false,
-    searchInput: "new"
+    searchInput: ""
 };
 
 export default (state = INITIAL_STATE, {type, payload}) => {
@@ -21,6 +22,8 @@ export default (state = INITIAL_STATE, {type, payload}) => {
             return {...state, loading: true };
         case FETCH_GIPHY_IMAGES_REJECTED:
             return {...state, loading: false, error: payload };
+        case SELECTED_GIPHY_IMAGE:
+            return {...state, selected: payload};
         default:
             return state
     }
