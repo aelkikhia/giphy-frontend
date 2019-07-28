@@ -3,7 +3,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import Header from "./Header";
 import history from '../history';
 import CategoryView from "./categories/CategoryView";
-import GiphyView from "./giphy/GiphyView";
+import ImageView from "./giphy/ImageView";
 
 
 const App = () => {
@@ -14,8 +14,8 @@ const App = () => {
                 <div>
                     <Header/>
                     <Switch>
-                        <Route path="/categories" exact component={CategoryView} />
-                        <Route path="/giphy" exact component={GiphyView} />
+                        <Route path="/category" exact component={CategoryView} />
+                        <Route path="/giphy" exact component={ImageView} />
                     </Switch>
                 </div>
             </Router>

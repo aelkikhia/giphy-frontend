@@ -27,7 +27,7 @@ class BoardList extends React.Component {
             return <div>Loading...</div>
         }
 
-        return <div className="ui buttons">{this.renderBoardButtons()}</div>
+        return <div className="ui buttons">{this.renderCategoryButtons()}</div>
 
     }
 

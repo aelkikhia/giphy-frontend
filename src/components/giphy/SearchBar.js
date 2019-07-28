@@ -1,16 +1,21 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { fetchGiphyImages } from "../../actions";
 
-class GiphySearchBar extends React.Component {
+// TODO: make a generic component
+class SearchBar extends React.Component {
 
     state = { term: ""};
 
     onInputChange = event => {
-        this.setState({ term: event.target.value });
+        this.setState({ term: event.target.value.trim() });
     };
 
     onFormSubmit = event => {
-        event.preventDefault();
-        this.props.onFormSubmit(this.state.term);
+        event.preventDefault(); // prevent default form submission behavior
+        // TODO: don't search on an empty string, add form validation
+        if (this.state.term === "") return false;
+        this.props.fetchGiphyImages(this.state.term);
     };
 
     render() {
@@ -19,7 +24,7 @@ class GiphySearchBar extends React.Component {
                 <form onSubmit={this.onFormSubmit}
                       className="ui form">
                     <div className="field">
-                        <label>Video Search</label>
+                        <label>Giphy Search</label>
                         <input
                             type="text"
                             value={this.state.term}
@@ -32,4 +37,4 @@ class GiphySearchBar extends React.Component {
     }
 }
 
-export default GiphySearchBar;
+export default connect(null, {fetchGiphyImages})(SearchBar);
