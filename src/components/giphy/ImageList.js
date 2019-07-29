@@ -4,32 +4,21 @@ import {selectedImage} from "../../actions";
 
 class ImageList extends Component {
 
-    saveList = url => {
-        console.log('ouch');
-        let savedItemsArr = JSON.parse(localStorage.getItem("savedItems")) || [];
-        // debugger
-        if (savedItemsArr.indexOf(url) === -1) {
-            savedItemsArr.push(url);
-            localStorage.setItem("savedItems", JSON.stringify(savedItemsArr));
-            // this.props.dispatch(updateMenu());
-        }
-    };
-
     renderList() {
         let image_data = this.props.giphy.images.data;
         return image_data.map(image => {
             return (
-                <li key={image.id} className="list" onClick={() =>this.selectedImage(image)}>
+                <li key={image.id} className="list" onClick={() =>this.props.selectedImage(image)}>
                     <img src={image.images.fixed_width_small.url} alt="" />
-                </li>
 
+                </li>
             );
         });
     };
 
     render() {
         if (this.props.giphy.loading) {
-            return <div>Loading</div>
+            return <div>Loading...</div>
         }
         if (this.props.giphy.error) {
             return <div>Error</div>

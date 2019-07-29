@@ -1,4 +1,3 @@
-// import profile_api from '../apis/giphy_profile';
 // import { createAction } from './base_actions';
 //
 // import {

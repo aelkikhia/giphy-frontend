@@ -14,12 +14,18 @@ export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const ADD_FAVORITE_TO_CATEGORY = 'ADD_FAVORITE_TO_CATEGORY';
 
 // giphy api action types
-export const FETCH_GIPHY_IMAGES = 'FETCH_GIPHY_IMAGES';
-export const FETCH_GIPHY_IMAGES_PENDING = `${FETCH_GIPHY_IMAGES}_${ActionType.Pending}`;
-export const FETCH_GIPHY_IMAGES_FULFILLED = `${FETCH_GIPHY_IMAGES}_${ActionType.Fulfilled}`;
-export const FETCH_GIPHY_IMAGES_REJECTED = `${FETCH_GIPHY_IMAGES}_${ActionType.Rejected}`;
-export const SELECTED_GIPHY_IMAGE = 'SELECTED_GIPHY_IMAGE';
+export const SEARCH_FOR_IMAGES = 'SEARCH_FOR_IMAGES';
+export const SEARCH_FOR_IMAGES_PENDING = `${SEARCH_FOR_IMAGES}_${ActionType.Pending}`;
+export const SEARCH_FOR_IMAGES_FULFILLED = `${SEARCH_FOR_IMAGES}_${ActionType.Fulfilled}`;
+export const SEARCH_FOR_IMAGES_REJECTED = `${SEARCH_FOR_IMAGES}_${ActionType.Rejected}`;
+
+export const TOGGLE_LIKE_IMAGE = 'TOGGLE_LIKE_IMAGE';
+export const TOGGLE_LIKE_IMAGE_PENDING = `${TOGGLE_LIKE_IMAGE}_${ActionType.Pending}`;
+export const TOGGLE_LIKE_IMAGE_FULFILLED = `${TOGGLE_LIKE_IMAGE}_${ActionType.Fulfilled}`;
+export const TOGGLE_LIKE_IMAGE_REJECTED = `${TOGGLE_LIKE_IMAGE}_${ActionType.Rejected}`;
 
 
 // search bar action types
+
+export const SELECTED_GIPHY_IMAGE = 'SELECTED_GIPHY_IMAGE';
 export const UPDATE_SEARCH_INPUT = 'UPDATE_SEARCH_INPUT';

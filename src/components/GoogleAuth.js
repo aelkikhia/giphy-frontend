@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from "../actions";
 
+const client_id = '938346147180-ec4rhc8pv9n4h4kj2ih4f12h2l0210gi.apps.googleusercontent.com';
+
 class GoogleAuth extends Component {
 
     componentDidMount() {
         window.gapi.load('client:auth2', () => {
             window.gapi.client.init({
-                clientId: '938346147180-ec4rhc8pv9n4h4kj2ih4f12h2l0210gi.apps.googleusercontent.com',
+                clientId: client_id,
                 scope: 'email'
             }).then(() => {
                 this.auth = window.gapi.auth2.getAuthInstance();
@@ -18,6 +20,7 @@ class GoogleAuth extends Component {
     }
 
     onAuthChange = (isSignedIn) => {
+        console.log(this.auth.currentUser.get());
       isSignedIn? this.props.signIn(this.auth.currentUser.get().getId()) : this.props.signOut()
     };
 

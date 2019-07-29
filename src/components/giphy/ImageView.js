@@ -1,16 +1,14 @@
 import React from 'react';
-
 import ImageDetail from './ImageDetail';
 import ImageList from './ImageList';
 import SearchBar from './SearchBar';
 
+//TODO: make a function based component or genericize the child components
 class ImageView extends React.Component {
-
-
 
     render() {
         return <div>
-            <SearchBar onFormSubmit={this.onTermSubmit} />
+            <SearchBar />
             <div className="ui grid">
                 <div className="ui row">
                     <div className="five wide column">
@@ -22,8 +20,7 @@ class ImageView extends React.Component {
                 </div>
             </div>
         </div>
-
     }
 }
 
-export default (ImageView);
+export default ImageView;
