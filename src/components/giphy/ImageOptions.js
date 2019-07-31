@@ -5,16 +5,16 @@ import {toggleLikeImage} from "../../actions";
 class ImageOptions extends React.Component {
 
     toggleLikeOnClick = () => {
-        this.image.toggleLikeImage(this.props.giphy.selected.id);
+        // this.image.toggleLikeImage(this.props.giphy.selected.id);
+        console.log("like toggled")
     };
 
     renderLikeButton() {
 
         if(this.props.isLiked) {
             return (
-                <button onClick={this.toggleLikeOnClick} className="ui button">
-                    <i className="heart icon" />
-                </button>
+                <i onClick={this.toggleLikeOnClick} className="heart icon" />
+
             );
         }
         else {
@@ -24,8 +24,6 @@ class ImageOptions extends React.Component {
         }
     }
 
-
-
     render () {
         return <div>{this.renderLikeButton()}</div>
     }
@@ -34,7 +32,7 @@ class ImageOptions extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLiked: state.giphy,
+        isLiked: state.giphy.selected.isLiked,
         isSignedIn: state.auth.isSignedIn
     };
 };

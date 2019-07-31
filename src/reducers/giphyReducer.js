@@ -18,12 +18,11 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, {type, payload}) => {
     switch(type) {
         case SEARCH_FOR_IMAGES_FULFILLED:
-            // TODO: consider if mapping list of objects to hash of objects and selecting id is the better way to go
             return {...state,
                 images: payload.data,
                 loading: false,
                 // load first image in the search
-                selected: payload.data.data[0]
+                selected: Object.values(payload.data.data)[0]
             };
         case SEARCH_FOR_IMAGES_PENDING:
             return {...state, loading: true };

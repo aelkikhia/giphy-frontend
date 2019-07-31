@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React, {Component} from 'react';
 import  { connect } from "react-redux";
 import {selectedImage} from "../../actions";
@@ -6,11 +7,18 @@ class ImageList extends Component {
 
     renderList() {
         let image_data = this.props.giphy.images.data;
-        return image_data.map(image => {
+
+        // return Object.values(image_data).forEach(image => {
+        //     return (
+        //         <li key={image.id} className="list" onClick={() =>this.props.selectedImage(image)}>
+        //             <img src={image.images.fixed_width_small.url} alt="" />
+        //         </li>
+        //     );
+        // });
+        return _.map(image_data, (image, index) => {
             return (
                 <li key={image.id} className="list" onClick={() =>this.props.selectedImage(image)}>
                     <img src={image.images.fixed_width_small.url} alt="" />
-
                 </li>
             );
         });
@@ -26,11 +34,7 @@ class ImageList extends Component {
         if (!this.props.giphy.images.data) {
             return <div>Search for something new</div>
         }
-        return (
-            <div className="results">
-                <ul>{this.renderList()}</ul>
-            </div>
-        );
+        return (<div className="results"><ul>{this.renderList()}</ul></div>);
     }
 }
 

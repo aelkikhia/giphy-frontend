@@ -8,10 +8,15 @@ const baseURL = 'http://localhost:5000/';
 
 
 
-export const fetchGiphyImages = (userInput) => dispatch => {
+export const fetchGiphyImages = (userInput) => (dispatch, getState) => {
     return dispatch({
         type: SEARCH_FOR_IMAGES,
-        payload: axios.get(`${baseURL}search/${userInput}`)
+        payload: axios.get(`${baseURL}search`, {
+            params: {
+                external_user: getState().auth.userId,
+                search_input: userInput
+            }
+        })
     });
 };
 
